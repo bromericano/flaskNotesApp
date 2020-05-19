@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping List</title>
+        <style>
+            ul {
+                display: table center;
+                padding: 0;
+                text-align: center;
+                color:#05386B;
+                font-size: 24px;
+                background-color: rgba(252, 231, 138, 0.479);
+                list-style: none;
+                font-weight: bold;
+            }
+            form {
+                text-align: center;
+            }
+            input {
+                background-color:#E8A87C;
+            }
+
+            body {
+                background-image: url("/static/images/grocerypic.jpg");
+                background-size: 100% auto;
+            }
+
+            .header {
+                background-color: #E27D60;
+                text-align: center;
+                padding: 20px;
+                }
+                .column {
+                    float: left;
+                    width: 100%;
+                    }
+        </style>
+    </head>
+    
+    <body>
+        <h1 class="header">Shopping List</h1>
+    <div class="column">
+    <ul>
+        {% for note in notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ url_for('index') }}" method="post">
+        <input type="text" name="note" placeholder="Enter Note Here">
+        <button>Add Note</button>
+    </form>
+    </div>
+    </body>
+</html>
